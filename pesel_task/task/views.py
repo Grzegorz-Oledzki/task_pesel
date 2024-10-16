@@ -16,8 +16,8 @@ def home(request: WSGIRequest) -> HttpResponse:
         if form.is_valid():
             pesel = request.POST["pesel"]
             if pesel.isdigit() and len(pesel) == 11:
-                result = check_pesel(pesel)
-                context = {"result": result, "pesel": pesel}
+                result, text = check_pesel(pesel)
+                context = {"result": result, "pesel": pesel, "text": text}
                 return render(request, "result.html", context)
             else:
                 return HttpResponse(

@@ -1,7 +1,7 @@
 from datetime import datetime
 
 
-def check_pesel(pesel: str) -> str:
+def check_pesel(pesel: str) -> tuple[bool, str]:
     year = pesel[0:2]
     month = pesel[2:4]
     day = pesel[4:6]
@@ -21,23 +21,26 @@ def check_pesel(pesel: str) -> str:
         elif first_month_number in ["6", "7"]:
             full_year = f"22{year}"
         else:
-            return "Wrong month format"
+            return False, "Wrong month format"
 
         full_month = (
             f"1{month[1]}" if first_month_number in odd_numbers else f"0{month[1]}"
         )
         if int(full_month) > 12:
-            return f"Mounth of of range {full_month}"
+            return False, f"Mounth of of range {full_month}"
 
         date_string = f"{day}-{full_month}-{full_year}"
         try:
             datetime.strptime(date_string, "%d-%m-%Y")
         except ValueError:
-            return "Day is out of range for month"
+            return False, "Day is out of range for month"
 
         gender = "Male" if sex in odd_numbers else "Famale"
-        return f"The owner of this PESEL is {gender} born at {date_string}"
-    return "Control number is wrong"
+        return (
+            True,
+            f" Pesel is correct. The owner of this PESEL is {gender} born at {date_string}",
+        )
+    return False, "Control number is wrong"
 
 
 def is_control_number_valid(pesel: str) -> bool:

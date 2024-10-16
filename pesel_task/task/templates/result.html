@@ -1,11 +1,14 @@
 <h2>Entered PESEL:</h2>
 
     <div>
-    {{ pesel }}
+    <h1>{{ pesel }}</h1>
     </div>
 
         <h2>Info about this PESEL:</h2>
-
+        {% if result %}
     <div>
-    {{ result }}
+        <h1 style="color:Green;">{{ text }}</h1>
+        {% else %}
+        <h1 style="color:Tomato;">{{ text }}</h1>
+        {% endif %}
 </div>
