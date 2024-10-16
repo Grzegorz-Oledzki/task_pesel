@@ -33,7 +33,10 @@ def check_pesel(pesel: str) -> tuple[bool, str]:
         try:
             datetime.strptime(date_string, "%d-%m-%Y")
         except ValueError:
-            return False, "Day is out of range for month"
+            return (
+                False,
+                f"Day is out of range for month. Day: {day}, month: {full_month}",
+            )
 
         gender = "Male" if sex in odd_numbers else "Famale"
         return (
@@ -50,3 +53,6 @@ def is_control_number_valid(pesel: str) -> bool:
     control_number = pesel[-1]
     if control_number == calculated_number:
         return True
+
+
+result = is_control_number_valid("98314092494")
