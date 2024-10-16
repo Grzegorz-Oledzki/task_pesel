@@ -15,10 +15,13 @@ App is anable to check correctness of PESEL number, and provide feedback about i
 ![alt text](readme_images/image.png)
 
 3. Wait for result: (PESEL from generator: https://pesel.cstudios.pl/o-generatorze/generator-on-line)
+
 correct:
+
 ![alt text](readme_images/image-1.png)
 
 or for incorrect PESEL:
+
 ![alt text](readme_images/image-2.png)
 
 
