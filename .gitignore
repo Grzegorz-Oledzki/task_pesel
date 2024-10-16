@@ -1,3 +1,4 @@
 .venv/
 __pycache__/
 .env
+pesel_task/db.sqlite3
