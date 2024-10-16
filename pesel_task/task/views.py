@@ -15,12 +15,7 @@ def home(request: WSGIRequest) -> HttpResponse:
         form = PeselForm(request.POST, request.FILES)
         if form.is_valid():
             pesel = request.POST["pesel"]
-            if pesel.isdigit() and len(pesel) == 11:
-                result, text = check_pesel(pesel)
-                context = {"result": result, "pesel": pesel, "text": text}
-                return render(request, "result.html", context)
-            else:
-                return HttpResponse(
-                    f"Wrong PESEL format, make sure if PESEL have 11 digits"
-                )
+            result, text = check_pesel(pesel)
+            context = {"result": result, "pesel": pesel, "text": text}
+            return render(request, "result.html", context)
     return render(request, "pesel_form.html", context)
