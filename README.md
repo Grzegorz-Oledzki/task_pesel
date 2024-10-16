@@ -26,3 +26,6 @@ or for incorrect PESEL:
 
 
 ![alt text](readme_images/image-3.png)
+
+
+![alt text](readme_images/image-4.png)

@@ -2,3 +2,5 @@
 __pycache__/
 .env
 pesel_task/db.sqlite3
+.pytest_cache/
+.vscode/
