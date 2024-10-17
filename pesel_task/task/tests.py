@@ -45,5 +45,5 @@ def test_true_pesels_are_correct(pesel: str):
 
 
 @pytest.mark.parametrize("pesel", FALSE_PESELS)
-def test_false_pesels_are_correct(pesel: str):
+def test_false_pesels_are_incorrect(pesel: str):
     assert not PeselValidator(pesel).is_valid()
