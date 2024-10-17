@@ -34,5 +34,5 @@ or for incorrect PESEL:
 
 Tests passed:
 
-
+![alt text](readme_images/image-5.png)
 ![alt text](readme_images/image-5.png)
