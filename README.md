@@ -29,3 +29,9 @@ or for incorrect PESEL:
 
 
 ![alt text](readme_images/image-4.png)
+
+
+Tests passed:
+
+
+![alt text](readme_images/image-5.png)

@@ -1,6 +1,7 @@
-from .utils import check_pesel
+from task.pesel_corectness_checker import PeselValidator
+import pytest
 
-valid_pesels = [
+TRUE_PESELS = [
     "72062279128",
     "59091281227",
     "96062327322",
@@ -19,9 +20,9 @@ valid_pesels = [
 ]
 
 
-invalid_valid_pesels = [
+FALSE_PESELS = [
     "72062279122",
-    "59091241227",
+    "abcabcacbab",
     "96062357322",
     "74061192629",
     "75021569417",
@@ -38,14 +39,11 @@ invalid_valid_pesels = [
 ]
 
 
-def test_valid_pesels():
-    for pesel in valid_pesels:
-        result, _ = check_pesel(pesel)
-        assert result == True
+@pytest.mark.parametrize("pesel", TRUE_PESELS)
+def test_true_pesels_are_correct(pesel: str):
+    assert PeselValidator(pesel).is_valid()
 
 
-def test_invalid_pesels():
-    for pesel in invalid_valid_pesels:
-        print(pesel)
-        result, _ = check_pesel(pesel)
-        assert result == False
+@pytest.mark.parametrize("pesel", FALSE_PESELS)
+def test_false_pesels_are_correct(pesel: str):
+    assert not PeselValidator(pesel).is_valid()
