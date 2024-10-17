@@ -1,5 +1,5 @@
-from task.pesel_corectness_checker import PeselValidator
 import pytest
+from task.services.pesel_corectness_checker import PeselValidator
 
 TRUE_PESELS = [
     "72062279128",

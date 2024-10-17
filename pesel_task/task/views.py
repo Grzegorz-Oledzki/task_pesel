@@ -1,8 +1,8 @@
-from django.shortcuts import render
 from django.core.handlers.wsgi import WSGIRequest
 from django.http import HttpResponse
+from django.shortcuts import render
 from task.forms import PeselForm
-from task.pesel_corectness_checker import PeselValidator
+from task.services.pesel_corectness_checker import PeselValidator
 
 
 # Create your views here.
@@ -14,6 +14,10 @@ def home(request: WSGIRequest) -> HttpResponse:
         if form.is_valid():
             pesel = request.POST["pesel"]
             validator = PeselValidator(pesel)
-            context = {"result": validator.is_valid(), "pesel": pesel, "text": validator.message}
+            context = {
+                "result": validator.is_valid(),
+                "pesel": pesel,
+                "text": validator.message,
+            }
             return render(request, "result.html", context)
     return render(request, "pesel_form.html", context)
