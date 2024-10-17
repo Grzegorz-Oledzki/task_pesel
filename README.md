@@ -7,6 +7,7 @@ App is anable to check correctness of PESEL number, and provide feedback about i
 2. Contact with me for SECRET_KEY.
 3. Install requirements: <code>pip install -r requirements.txt</code>
 4. Enter <code>python manage.py runserver</code> in terminal.
+5. You can also run app in container
 
 # How to use:
 1. Visit <code>http://127.0.0.1:8000/</code>
